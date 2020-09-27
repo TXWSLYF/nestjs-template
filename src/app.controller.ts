@@ -1,11 +1,24 @@
-import { Controller, Get, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  HttpStatus,
+  Post,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
 import { AppService } from './app.service';
+import { AuthService } from './auth/auth.service';
+import { JwtAuthGuard } from './auth/jwt-auth.guard';
+import { LocalAuthGuard } from './auth/local-auth.guard';
 import { ApiErrCode } from './common/exceptions/api.errCode.enum';
 import { ApiException } from './common/exceptions/api.exception';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly authService: AuthService,
+  ) {}
 
   // 返回基本数据类型
   @Get()
@@ -29,5 +42,18 @@ export class AppController {
   @Get('/api-forbidden')
   getApiForbidden() {
     throw new ApiException(ApiErrCode.NOT_LOGIN, HttpStatus.FORBIDDEN);
+  }
+
+  // 登录接口
+  @UseGuards(LocalAuthGuard)
+  @Post('auth/login')
+  async login(@Request() req) {
+    return this.authService.login(req.user);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('profile')
+  getProfile(@Request() req) {
+    return req.user;
   }
 }

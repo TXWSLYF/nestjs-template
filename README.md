@@ -71,6 +71,7 @@
 - [ ] mysql curd 整合
 - [ ] 文件上传
 - [ ] 登录验证
+- [ ] 权限控制
 
 ## References
 
@@ -78,3 +79,10 @@
 2. [nestjs web 开发整合](https://juejin.im/post/6844903959631495175#heading-2)
 3. [whats-the-difference-between-interceptor-vs-middleware-vs-filter-in-nest-js](https://stackoverflow.com/questions/54863655/whats-the-difference-between-interceptor-vs-middleware-vs-filter-in-nest-js)
 4. [Koa2 和 Express 中间件对比](https://www.cnblogs.com/cckui/p/10991062.html)
+5. [nestjs authentication](https://docs.nestjs.com/techniques/authentication)
+5. [BearerToken之JWT的介绍](https://www.cnblogs.com/lori/p/11246611.html)
+5. [JSON Web Tokens vs. Session Cookies for Authentication](https://medium.com/better-programming/json-web-tokens-vs-session-cookies-for-authentication-55a5ddafb435)
+5. [Session vs Token Based Authentication](https://medium.com/@sherryhsu/session-vs-token-based-authentication-11a6c5ac45e4)
+5. [NestJS Basic Auth and Sessions（值得一看）](http://blog.exceptionfound.com/2018/06/07/nestjs-basic-auth-and-sessions/)
+5. [使用jwt完成sso单点登录](https://blog.csdn.net/weixin_41282397/article/details/85049850)
+
